@@ -23,7 +23,12 @@ print(f"MAE: {mae:.2f}")
 print(f"RMSE: {rmse:.2f}")
 print(f"R2: {r2:.4f}")
 
-results = pd.DataFrame([{'model': 'LinearRegression', 'MAE': mae, 'RMSE': rmse, 'R2': r2}])
+results = pd.DataFrame([{
+    'model': 'LinearRegression',
+    'MAE': mae,
+    'RMSE': rmse,
+    'R2': r2
+}])
 results.to_csv("report/baseline_results.csv", index=False)
 
 joblib.dump(model, "models/baseline_model.pkl")

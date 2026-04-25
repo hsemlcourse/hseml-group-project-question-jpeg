@@ -38,8 +38,7 @@
 │   └── raw                     # Исходный датасет (europe-motorbikes-zenrows.csv)
 ├── models                      # Сохранённые модели и препроцессоры (.pkl)
 ├── notebooks
-│   ├── 01_eda.ipynb            # Старый черновик EDA
-│   └── 01_eda1.ipynb           # Основной ноутбук с разведочным анализом и очисткой
+│   └── 01_eda.ipynb            # Основной ноутбук с разведочным анализом и очисткой
 ├── presentation                # Презентация для защиты
 ├── report
 │   ├── images                  # Изображения для отчёта
@@ -49,7 +48,7 @@
 │   ├── build_features.py       # Скрипт генерации признаков (StandardScaler, OHE)
 │   └── train_baseline.py       # Скрипт обучения базовой модели (Linear Regression)
 ├── tests
-│   └── test.py                 # Тесты пайплайна
+│   └── test_pipeline.py        # Тесты пайплайна
 ├── requirements.txt            # Зависимости проекта
 └── README.md                   # Описание проекта
 ```

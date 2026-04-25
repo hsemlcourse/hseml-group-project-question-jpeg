@@ -14,7 +14,11 @@ numerical_cols = ['mileage', 'power', 'age', 'mileage_per_year']
 preprocessor = ColumnTransformer(
     transformers=[
         ('num', StandardScaler(), numerical_cols),
-        ('cat', OneHotEncoder(handle_unknown='ignore', sparse_output=False), categorical_cols)
+        (
+            'cat',
+            OneHotEncoder(handle_unknown='ignore', sparse_output=False),
+            categorical_cols
+        )
     ])
 
 X_train_processed = preprocessor.fit_transform(X_train)
