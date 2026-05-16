@@ -55,6 +55,8 @@
 
 ## Запуск
 
+Проект поддерживает автоматизацию через `Makefile`.
+
 Для воспроизведения результатов проекта выполните следующие шаги:
 
 ```bash
@@ -63,20 +65,31 @@ git clone <url-вашего-репозитория>
 cd <имя-папки>
 
 # 2. Создать виртуальное окружение
-python -m venv .venv
-source .venv/bin/activate   # Linux/macOS
-# .venv\Scripts\activate    # Windows
+python -m venv venv
+source venv/bin/activate   # Linux/macOS
+# venv\Scripts\activate    # Windows
 
 # 3. Установить зависимости
-pip install --upgrade pip setuptools wheel
-pip install -r requirements.txt
+make install
 
-# 4. Подготовить данные (убедитесь, что исходный csv лежит в data/raw/)
+# 4. Линтер и тесты
+make lint    # Запустит flake8
+make test    # Запустит pytest
+
+# 5. Подготовить данные (убедитесь, что исходный csv лежит в data/raw/)
 python src/make_dataset.py
 python src/build_features.py
 
-# 5. Обучить Baseline-модель
-python src/train_baseline.py
+# 6. Обучить модели и провести эксперименты
+make run-baseline
+make run-experiments
+```
+
+### Запуск через Docker
+
+```bash
+docker-compose build
+docker-compose up
 ```
 
 ## Данные

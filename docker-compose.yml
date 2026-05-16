@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  ml-pipeline:
+    build: .
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./report:/app/report
+    environment:
+      - PYTHONUNBUFFERED=1
