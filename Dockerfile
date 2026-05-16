@@ -17,5 +17,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Копируем исходный код
 COPY . .
 
-# Команда по умолчанию
-CMD ["python", "src/train_models.py"]
+# Команда по умолчанию: запускаем пайплайн целиком
+CMD ["sh", "-c", "python src/make_dataset.py && python src/build_features.py && python src/train_baseline.py && python src/run_pca.py && python src/train_models.py"]

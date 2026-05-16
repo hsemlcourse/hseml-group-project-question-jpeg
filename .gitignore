@@ -47,9 +47,10 @@ data/processed/*.pkl
 data/processed/*.npy
 data/processed/*.npz
 
-# Keep directory structure
+# Keep directory structure and the main dataset
 !data/raw/.gitkeep
 !data/processed/.gitkeep
+!data/raw/europe-motorbikes-zenrows.csv
 
 # =============================================================================
 # Models — large binary files
@@ -101,3 +102,4 @@ ehthumbs.db
 .pytest_cache/
 .coverage
 htmlcov/
+notebooks/catboost_info/

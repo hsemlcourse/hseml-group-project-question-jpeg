@@ -38,10 +38,12 @@
 │   └── raw                     # Исходный датасет (europe-motorbikes-zenrows.csv)
 ├── models                      # Сохранённые модели и препроцессоры (.pkl)
 ├── notebooks
-│   └── 01_eda.ipynb            # Основной ноутбук с разведочным анализом и очисткой
+│   ├── 01_eda.ipynb            # Основной ноутбук с разведочным анализом и очисткой
+│   └── 02_experiments.ipynb    # Ноутбук с экспериментами, выбором моделей и PCA
 ├── presentation                # Презентация для защиты
 ├── report
 │   ├── images                  # Изображения для отчёта
+│   ├── experiments_results.csv # Таблица с метриками экспериментов
 │   └── report.md               # Финальный отчёт с описанием экспериментов
 ├── src
 │   ├── make_dataset.py         # Скрипт очистки данных и разбиения на train/val/test
@@ -80,9 +82,11 @@ make test    # Запустит pytest
 python src/make_dataset.py
 python src/build_features.py
 
-# 6. Обучить модели и провести эксперименты
+# 6. Обучить baseline
 make run-baseline
-make run-experiments
+
+# 7. Эксперименты проводятся в Jupyter Notebook:
+# notebooks/02_experiments.ipynb
 ```
 
 ### Запуск через Docker
@@ -102,7 +106,7 @@ docker-compose up
 | Модель | MAE | RMSE | R2 | Примечание |
 |--------|-------------|-------------|-------------|------------|
 | Baseline (Linear Regression) | 2356.70 | 4379.24 | 0.6165 | Простая линейная регрессия без сложного feature engineering |
-| Лучшая модель | — | — | — | Будет добавлена в CP2 |
+| **XGBoost (Лучшая модель)** | **2176.93** | **4146.63** | **0.6562** | Градиентный бустинг, подобранные гиперпараметры |
 
 
 ## Отчёт
